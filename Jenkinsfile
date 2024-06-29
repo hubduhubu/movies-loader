@@ -1,4 +1,4 @@
-node ('built-in node'){
+node ('Built-In Node'){
     stage('Checkout'){
         checkout scm
     }
