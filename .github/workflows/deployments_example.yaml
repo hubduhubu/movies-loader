@@ -20,4 +20,9 @@ jobs:
                 path: movies.json
                 if-no-files-found: error
                 retention-days: 1
+    
+    deploy-dev:
+        needs: [build-and-test]
+        if: github.ref == 'refs/heads/dev'
+        runs-on: ubuntu-latest
 
