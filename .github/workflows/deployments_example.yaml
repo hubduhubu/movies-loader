@@ -1,7 +1,7 @@
 name: deployments_example
 on:
     push:
-        branches: [dev]
+        branches: [dev, master]
     
     workflow_dispatch:
 jobs:
@@ -33,4 +33,16 @@ jobs:
               uses: actions/download-artifact@v4
               with:
                 name: movies.json
+            
+            - name: release to dev
+              uses: softprops/action-gh-release@v2.3.2
+              with:
+                tag_name: ${{ vars.DEV_VERSION }}
+                token: ${{ secrets.DEV_ENV_SECRET }}
+                prerelease: true
+                draft: true
+                name: dev
+                files: deploy_test_file.zip
+
+            
 
