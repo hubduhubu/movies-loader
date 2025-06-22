@@ -25,4 +25,7 @@ jobs:
         needs: [build-and-test]
         if: github.ref == 'refs/heads/dev'
         runs-on: ubuntu-latest
+        environment:
+            name: dev
+            url: https://gihub.com/${{ github.repository }}/releases/tag/v${{ vars.DEV_VERSION}}
 
