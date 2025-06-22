@@ -1,7 +1,7 @@
 name: deployments_example
 on:
     push:
-        branches: [master]
+        branches: [master, dev]
     
     workflow_dispatch:
 jobs:
@@ -25,4 +25,7 @@ jobs:
         needs: [build-and-test]
         if: github.ref == 'refs/heads/dev'
         runs-on: ubuntu-latest
+        environment:
+            name: dev
+            url: https://github.com/${{ github.repository }}/releases/tag/v${{ vars.DEV_VERSION }}
 
