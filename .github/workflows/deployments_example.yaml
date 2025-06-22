@@ -28,4 +28,9 @@ jobs:
         environment:
             name: dev
             url: https://gihub.com/${{ github.repository }}/releases/tag/v${{ vars.DEV_VERSION}}
+        steps:
+            - name: download artifact 
+              uses: actions/download-artifact@v4
+              with:
+                name: movies.json
 
