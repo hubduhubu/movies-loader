@@ -1,7 +1,7 @@
 name: deployments_example
 on:
     push:
-        branches: [master]
+        branches: [dev]
     
     workflow_dispatch:
 jobs:
@@ -27,7 +27,7 @@ jobs:
         runs-on: ubuntu-latest
         environment:
             name: dev
-            # url: https://gihub.com/${{ github.repository }}/releases/tag/v${{ vars.DEV_VERSION}}
+            url: https://gihub.com/${{ github.repository }}/releases/tag/v${{ vars.DEV_VERSION}}
         steps:
             - name: download artifact 
               uses: actions/download-artifact@v4
