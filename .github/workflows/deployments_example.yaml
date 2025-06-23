@@ -37,7 +37,8 @@ jobs:
                 name: movies.json
             
             - name: release to dev
-              uses: softprops/action-gh-release@v2.3.2
+              uses: softprops/action-gh-release@v0.1.15
+                # softprops/action-gh-release@v2.3.2
               with:
                 tag_name: ${{ vars.DEV_VERSION }}
                 token: ${{ secrets.DEV_ENV_SECRET }}
