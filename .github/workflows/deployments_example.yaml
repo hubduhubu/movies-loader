@@ -37,15 +37,19 @@ jobs:
                 name: movies.json
             
             - name: release to dev
-              uses: softprops/action-gh-release@v0.1.15
+              uses: softprops/action-gh-release@v2.3.2
                 # softprops/action-gh-release@v2.3.2
               with:
                 tag_name: ${{ vars.DEV_VERSION }}
-                token: ${{ github.token }}
+                token: ${{ secrets.GITHUB_TOKEN }}
                 prerelease: true
                 draft: true
-                name: dev
-                # files: deploy_test_file.zip
+                name: dev${{ vars.DEV_VERSION }}
+                files: |
+                  requirements.txt
+                  main.py
+                  movies.json
+                  README.md
 
             
 
