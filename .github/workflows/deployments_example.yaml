@@ -42,7 +42,7 @@ jobs:
                 prerelease: true
                 draft: true
                 name: dev
-                files: deploy_test_file.zip
+                # files: deploy_test_file.zip
 
             
 
