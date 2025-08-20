@@ -41,7 +41,7 @@ jobs:
                 # softprops/action-gh-release@v2.3.2
               with:
                 tag_name: ${{ vars.DEV_VERSION }}
-                token: ${{ secrets.GITHUB_TOKEN }}
+                token: ${{ secrets.DEV_ENV_SECRET }}
                 prerelease: true
                 draft: true
                 name: dev${{ vars.DEV_VERSION }}
