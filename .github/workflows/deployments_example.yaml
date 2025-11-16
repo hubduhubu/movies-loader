@@ -1,7 +1,7 @@
 name: deployments_example
 on:
     push:
-        branches: [dev, master]
+        branches: [main]
     
     workflow_dispatch:
 jobs:
