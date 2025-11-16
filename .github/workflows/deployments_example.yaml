@@ -1,7 +1,7 @@
 name: deployments_example
 on:
     push:
-        branches: [master, dev]
+        branches: [main]
     
     workflow_dispatch:
 jobs:
@@ -25,7 +25,31 @@ jobs:
         needs: [build-and-test]
         if: github.ref == 'refs/heads/dev'
         runs-on: ubuntu-latest
+        permissions:
+            contents: write
         environment:
             name: dev
-            url: https://github.com/${{ github.repository }}/releases/tag/v${{ vars.DEV_VERSION }}
+            url: https://gihub.com/${{ github.repository }}/releases/tag/v${{ vars.DEV_VERSION}}
+        steps:
+            - name: download artifact 
+              uses: actions/download-artifact@v4
+              with:
+                name: movies.json
+            
+            - name: release to dev
+              uses: softprops/action-gh-release@v2.3.2
+                # softprops/action-gh-release@v2.3.2
+              with:
+                tag_name: ${{ vars.DEV_VERSION }}
+                token: ${{ secrets.DEV_ENV_SECRET }}
+                prerelease: true
+                draft: true
+                name: dev${{ vars.DEV_VERSION }}
+                files: |
+                  requirements.txt
+                  main.py
+                  movies.json
+                  README.md
+
+            
 
