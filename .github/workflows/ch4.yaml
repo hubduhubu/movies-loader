@@ -6,13 +6,27 @@ on:
   workflow_dispatch:
     
 jobs:
-  build:
+  # build:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - name: Run a one line script
+  #       run: echo Hello GHA!
+  #     - name: Run a multi line script 
+  #       run: |
+  #         echo testing line 1 
+  #         echo testing line 2
+  checkout:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+  
+  process:
+    runs-on: ubuntu-latest
+    steps:
       - name: Run a one line script
-        run: echo Hello GHA!
+        run: echo Hello GHA!v2 
       - name: Run a multi line script 
-        run: |
-          echo testing line 1 
-          echo testing line 2
+        run: | 
+          echo testing line 1 v2 
+          echo testing line 2 v2
