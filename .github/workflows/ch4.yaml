@@ -7,6 +7,7 @@ on:
 
 defaults: 
   run:
+    shell: bash
     working-directory: test_dir
     
 jobs:
@@ -36,6 +37,9 @@ jobs:
   #         echo testing line 2 v2
   test:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: sh
     steps:
       - name: check_dir
         run: ls -ltr
