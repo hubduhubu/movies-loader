@@ -4,6 +4,10 @@ on:
     branches: [dev]
 
   workflow_dispatch:
+
+defaults: 
+  run:
+    working-directory: test_dir
     
 jobs:
   # build:
@@ -21,12 +25,20 @@ jobs:
     steps:
       - uses: actions/checkout@v3
   
-  process:
+  # process:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Run a one line script
+  #       run: echo Hello GHA!v2 
+  #     - name: Run a multi line script 
+  #       run: | 
+  #         echo testing line 1 v2 
+  #         echo testing line 2 v2
+  test:
     runs-on: ubuntu-latest
     steps:
-      - name: Run a one line script
-        run: echo Hello GHA!v2 
-      - name: Run a multi line script 
-        run: | 
-          echo testing line 1 v2 
-          echo testing line 2 v2
+      - name: check_dir
+        run: ls -ltr
+
+
+  
