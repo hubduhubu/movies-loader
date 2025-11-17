@@ -40,9 +40,11 @@ jobs:
     defaults:
       run:
         shell: sh
-        working-directory: test_dir
+        # working-directory: test_dir
     steps:
       - uses: actions/checkout@v3
+      - name: check current wd
+        run: pwd
       - name: check_dir
         run: ls -ltr
 
