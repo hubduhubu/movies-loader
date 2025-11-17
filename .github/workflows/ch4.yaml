@@ -37,9 +37,9 @@ jobs:
   #         echo testing line 2 v2
   test:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: sh
+    # defaults:
+    #   run:
+    #     shell: sh
         # working-directory: test_dir
     steps:
       - uses: actions/checkout@v3
