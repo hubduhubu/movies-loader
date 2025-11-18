@@ -11,7 +11,7 @@ jobs:
     # env:
     #   STAGE: dev
     name: ${{ vars.JOB_NAME }}
-    if: ${{ vars.EXEC_WF == 'true' }}
+    if: ${{ vars.EXEC_WF != '' }}
     steps: 
       - uses: actions/checkout@v3
       - run: |
