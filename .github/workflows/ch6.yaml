@@ -9,6 +9,8 @@ jobs:
   verify:
     # env:
     #   STAGE: dev
+    environment:
+      name: dev
     name: ${{ vars.JOB_NAME }}
     if: ${{ vars.EXEC_WF != '' }}
     runs-on: ubuntu-latest
