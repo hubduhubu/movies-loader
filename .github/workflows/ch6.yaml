@@ -8,8 +8,8 @@ on:
 jobs:
   verify:
     runs-on: ubuntu-latest
-    env:
-      STAGE: dev
+    # env:
+    #   STAGE: dev
     name: ${{ vars.JOB_NAME }}
     if: ${{ vars.EXEC_WF == 'true' }}
     steps: 
