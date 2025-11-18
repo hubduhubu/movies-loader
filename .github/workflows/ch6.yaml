@@ -7,11 +7,11 @@ on:
 
 jobs:
   verify:
-    runs-on: ubuntu-latest
     # env:
     #   STAGE: dev
     name: ${{ vars.JOB_NAME }}
     if: ${{ vars.EXEC_WF != '' }}
+    runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@v3
       - run: |
