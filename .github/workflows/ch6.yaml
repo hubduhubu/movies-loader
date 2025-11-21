@@ -34,3 +34,12 @@ jobs:
             echo "${{ env.PIPE }}"
             echo "${{ env.STAGE }}"
             echo "${{ env.GITHUB_TOKEN }}"
+  check_url:
+    environment:
+        name: dev
+        url: https://github.com/${{ github.repository }}/releases/tag/v${{ vars.DEV_VERSION }}
+
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v3
+        - run: ls -ltr
