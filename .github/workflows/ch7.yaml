@@ -34,3 +34,13 @@ jobs:
                 "body": "Details: ${{ inputs.body }}"
                 }'
                 --fail
+    
+    setup:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Set debug output
+              id: setup-debug-stage
+              run: echo "BUILD_STAGE=debug" >> $GITUB_OUTPUT
+
+            - name: Get Stage
+              run: echo "The build stage is ${{ steps.setup-debug-stage.outputs.BUILD_STAGE }}"
