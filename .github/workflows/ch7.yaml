@@ -19,7 +19,7 @@ on:
 
 jobs:
     create_issue_on_failure:
-        runs-on: ubuntu_latest
+        runs-on: ubuntu-latest
         permissions:
             issues: write
         steps:
