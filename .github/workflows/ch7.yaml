@@ -18,22 +18,22 @@ on:
                 type: string        
 
 jobs:
-    create_issue_on_failure:
-        runs-on: ubuntu-latest
-        permissions:
-            issues: write
-        steps:
-            - name: Create issue using Rest api
-              run: |
-                curl --request POST \
-                --url https://api.github.com/repos/${{ github.repository }}/issues \
-                --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
-                --header 'content-type: application/json' \
-                --data '{
-                "title": "Failure: ${{ inputs.title }}",
-                "body": "Details: ${{ inputs.body }}"
-                }'
-                --fail
+    # create_issue_on_failure:
+    #     runs-on: ubuntu-latest
+    #     permissions:
+    #         issues: write
+    #     steps:
+    #         - name: Create issue using Rest api
+    #           run: |
+    #             curl --request POST \
+    #             --url https://api.github.com/repos/${{ github.repository }}/issues \
+    #             --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+    #             --header 'content-type: application/json' \
+    #             --data '{
+    #             "title": "Failure: ${{ inputs.title }}",
+    #             "body": "Details: ${{ inputs.body }}"
+    #             }'
+    #             --fail
     
     setup:
         runs-on: ubuntu-latest
