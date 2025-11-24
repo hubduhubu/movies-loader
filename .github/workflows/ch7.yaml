@@ -43,4 +43,22 @@ jobs:
               run: echo "BUILD_STAGE=debug" >> $GITHUB_OUTPUT
 
             - name: Get Stage
-              run: echo "The build stage is ${{ steps.setup-debug-stage.outputs.BUILD_STAGE }}"
+              run: echo "The build stage is ${{ steps.setup-debug-stage.outputs.BUILD_STAGE }}"    
+    
+    setup_job_version:
+        runs-on: ubuntu-latest
+        outputs:
+            build-job-stage: ${{ steps.setup_job_version_debug_stage.outputs.BUILD_JOB_STAGE }}
+        steps:
+            - name: Set job level debug output
+              id: setup_job_version_debug_stage
+              run: echo "BUILD_JOB_STAGE=job_debug" >> $GITHUB_OUTPUT
+        
+    report_job_version:
+        runs-on: ubuntu-latest
+        needs: setup_job_version
+        steps: 
+            - name: Report job version
+              run: echo "The job build stage is ${{ needs.setup_job_version.outputs.build-job-stage }}"
+
+
